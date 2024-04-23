@@ -9,7 +9,7 @@ const Rightcomp = () => {
         <h1>
        
          
-          <Image src="/images/vector.jpg" alt="logo" width={10} height={100} />
+          <Image src="/images/E1.svg" alt="logo" width={10} height={100} />
           Sedboi.euy
         </h1>
 
