@@ -1,5 +1,5 @@
 
-/* .rightcontainer {
+.rightcontainer {
     position: relative;
     margin: 12px;
     width: 240px;
@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  } */
+  }
   /* .rightcontainer img{
     width: 20px;
     height: 28px;
