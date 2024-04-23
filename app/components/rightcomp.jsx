@@ -8,7 +8,7 @@ const Rightcomp = () => {
       
         <h1>
        
-          By{" "}
+         
           <Image src="/images/vector.jpg" alt="logo" width={10} height={100} />
           Sedboi.euy
         </h1>
