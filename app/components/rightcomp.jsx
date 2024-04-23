@@ -16,14 +16,14 @@ const Rightcomp = () => {
         <ul className={styles.list}>
           <a href="#">
             <li>
-             By {" "}
+            
               <Image src="/images/Group.svg" alt="logo" width={100} height={100} />
               Home
             </li>
           </a>
           <a href="#">
             <li>
-              {" "}
+           
               <Image src="/images/Gr.svg" alt="logo" width={100} height={100} />
               Timeline
             </li>
