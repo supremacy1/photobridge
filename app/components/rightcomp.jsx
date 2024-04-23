@@ -8,7 +8,7 @@ const Rightcomp = () => {
       
         <h1>
        
-          {" "}
+          By{" "}
           <Image src="/images/vector.jpg" alt="logo" width={10} height={100} />
           Sedboi.euy
         </h1>
@@ -16,7 +16,7 @@ const Rightcomp = () => {
         <ul className={styles.list}>
           <a href="#">
             <li>
-              {" "}
+             By {" "}
               <Image src="/images/Group.svg" alt="logo" width={100} height={100} />
               Home
             </li>
