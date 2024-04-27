@@ -1,0 +1,14 @@
+/* styles/PictureSlider.module.css */
+
+.picture-slider {
+    position: relative;
+    width: 100%;
+  }
+  
+  .controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
