@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { useState } from 'react';
 import styles from "../styles/Navbar.module.css"; // Import CSS module
-
+import PictureSlider from "../components/Slide.jsx";
 const NavBar = () => {
   return (
     <>
@@ -8,17 +9,24 @@ const NavBar = () => {
       <div className={styles.mainbar}>
      <div className={styles.navbar}>
       <div className={styles.naviteams}>
-     <img src="/images/G9.svg" alt="Image 2" />
+     {/* <img src="/images/G9.svg" alt="Image 2" /> */}
       <h1>Photograh</h1>
-      </div>
-     </div>
-     <button>Help</button>
-     {/* <nav>
+      {/* <nav>
      <ul>
       <li>Help</li>
      </ul>
      </nav> */}
+      </div>
      </div>
+     {/* <button>Help</button> */}
+     <nav className={styles.nave}>
+      
+     <ul>
+      <li>Help</li>
+     </ul>
+     </nav>
+     </div>
+     <PictureSlider />
     </div>
 
     </>

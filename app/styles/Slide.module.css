@@ -1,14 +1,32 @@
 /* styles/PictureSlider.module.css */
 
 .picture-slider {
-    position: relative;
-    width: 100%;
-  }
-  
-  .controls {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  position: relative;
+  width: 100%;
+}
+
+/* .controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+} */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+border: 2px solid rgb(189, 163, 163);
+}
+
+.imageContainer {
+  width: 500px; 
+  height: 300px; 
+  overflow: hidden; 
+  margin: 20px;
+}
+
+/* .container button {
+  margin: 10px;
+} */
+
   

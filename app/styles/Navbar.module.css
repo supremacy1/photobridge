@@ -1,6 +1,6 @@
-.maincontainer{
+/* .maincontainer{
     background-color: rgb(204, 6, 6);
-}
+} */
 .mainbar{
     display: flex;
     justify-content: space-between;
@@ -9,20 +9,26 @@
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     align-items: center;  
- 
-    /* width: fit-content;
-    height: max-content;  */
+
+    /* width: 100%;
+    height: 35%;  */
 }
-.navbar{
-    margin-top: 3%;   
-    text-align: center;
-}
+/* .navbar{
+    position: relative;
+    margin-top: 10%;
+    margin-left: 3%;
+    display: flex;
+} */
 .naviteams{
     position: relative;
-    margin-top: 22%;
+    margin-top: 2%;
+    margin-left: 8%;
     display: flex;
     align-content: center;
     text-align: center;
     align-items: center;
    
+}
+.nave{
+   margin-right: 8%;
 }
