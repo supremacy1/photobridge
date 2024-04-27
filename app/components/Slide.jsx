@@ -74,6 +74,8 @@ const PictureSlide = () => {
           alt={`Image ${currentImage + 1}`}
           width={500}
           height={300}
+          // layout="fill" // Take up the size of the parent container
+          // objectFit="cover"
         />
       </div>
       {/* <button onClick={nextImage}>Next</button> */}

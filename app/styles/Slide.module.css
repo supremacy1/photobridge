@@ -1,9 +1,9 @@
 /* styles/PictureSlider.module.css */
 
-.picture-slider {
+/* .picture-slider {
   position: relative;
   width: 100%;
-}
+} */
 
 /* .controls {
   position: absolute;
@@ -15,14 +15,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-border: 2px solid rgb(189, 163, 163);
+
+
 }
+
 
 .imageContainer {
   width: 500px; 
   height: 300px; 
   overflow: hidden; 
-  margin: 20px;
+  margin: 1px;
+  /* border: 2px solid rgb(189, 163, 163); */
+  box-shadow: 12px 12px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* .container button {
