@@ -42,7 +42,7 @@
     top: 30%;
     left: 50%;
     transform: translate(-30%, -30%);
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
     z-index: 1;
     
   }
@@ -50,10 +50,10 @@
   .text {
     /* position: absolute;
     top: 30%;
-    left: 50%;
-    background-color: rgba(255, 255, 255, 0.8); */
+    left: 50%; */
+    background-color: rgba(255, 255, 255, 0.8);
     color: rgb(77, 10, 10);
-    
+    transform: translate(10%, -50%);
     text-align: center;
     font-weight: 1000;
     font-size: 20px;
