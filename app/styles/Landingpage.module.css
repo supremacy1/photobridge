@@ -52,13 +52,50 @@
     top: 30%;
     left: 50%; */
     background-color: rgba(255, 255, 255, 0.8);
-    color: rgb(77, 10, 10);
+    color: #007bff;
     transform: translate(10%, -50%);
     text-align: center;
     font-weight: 1000;
     font-size: 20px;
     z-index: 1;
   }
+  .buttonGroup {
+    display: flex;
+    transform: translate(10%, 5%);
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .button:last-child {
+    margin-right: 0;
+  }
+  
+  /* .btn{
+    display: flex;
+    justify-content: space-around;
+    color: rgb(11, 10, 77);
+    transform: translate(10%, -50%);
+   
+  }
+  .btn2{
+    background-color: rgb(219, 209, 209);
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    border: 2px solid red;
+    width:max-content;
+    height: max-content;
+  } */
 /* .caption {
     position: absolute;
     bottom: 300px;

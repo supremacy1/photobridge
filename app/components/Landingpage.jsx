@@ -59,6 +59,14 @@ function Landingpage() {
         />
           <div className={styles.caption}>
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
+       <div className={styles.buttonGroup}>
+      <button className={styles.button}>Register</button>
+      <button className={styles.button}>Book a Photographer</button>
+    </div>
+       {/* <div className={styles.btn}>
+       <button className={styles.btn1}>Register</button>
+       <button className={styles.btn2}>Look For A Photographer</button>
+       </div> */}
       </div>
         </div>
     </div>
