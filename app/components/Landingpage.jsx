@@ -58,7 +58,7 @@ function Landingpage() {
           // objectFit="cover"
         />
           <div className={styles.caption}>
-       BOOK YOUR PHOTOGRAPHER
+       <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
       </div>
         </div>
     </div>
