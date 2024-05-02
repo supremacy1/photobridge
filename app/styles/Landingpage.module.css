@@ -125,7 +125,13 @@
         font-size: 10px;
         font-weight: bolder;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-       
+       padding-left: 22px;
+      }
+      .nav1{
+        font-size: 10px;
+        font-weight: bolder;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       padding-right: 22px;
       }
       .caption{
         font-size: 10px;
