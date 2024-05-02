@@ -18,6 +18,7 @@
 .navbars{
     display: flex;
     justify-content: space-between;
+    font-family: monospace;
 }
 .nav1 ul{
     display: flex;
@@ -52,4 +53,8 @@
       width: 20px;
       color: aqua;
     }
+    .navbars{
+        font-size: 15px;
+       
+      }
   }
