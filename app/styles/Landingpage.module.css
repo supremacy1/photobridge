@@ -1,6 +1,6 @@
 .contianer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 10px;
     background-color: rgb(232, 232, 240);
     height: 63px;
@@ -10,7 +10,8 @@
     align-items: center;
 }
 .subnav{
-    display: flex;
+    /* display: flex; */
+    margin: 12px;
     align-items: center;
    
 }
@@ -44,6 +45,7 @@
     .subnav {
       text-align: center;
       font-size: 12px;
+      left: 22%;
     }
   
     .image {
