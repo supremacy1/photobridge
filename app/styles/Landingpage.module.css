@@ -19,6 +19,8 @@
     display: flex;
     justify-content: space-between;
     font-family: monospace;
+    /* padding: 13px; */
+    padding-left: 12px;
 }
 .nav1 ul{
     display: flex;
