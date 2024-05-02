@@ -1,13 +1,13 @@
 "use client"
 import Image from "next/image";
 
-import NavBar from "./components/Navbar.jsx";
-// import Navbar from "@components/NavBar.jsx";
+import NavBar from "./components/Navbar.jsx"
+import Landingpage from "./components/Landingpage.jsx"
 
 export default function Home() {
   return (
     <>
-    <NavBar />
+    <Landingpage />
    
     {/* <NavBar />  */}
     </>
