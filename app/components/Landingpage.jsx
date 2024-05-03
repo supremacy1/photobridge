@@ -49,6 +49,7 @@ function Landingpage() {
       </nav>
       </div>
       <div className={styles.imagecontainer}>
+        <div className={styles.imagecover}>
       <Image
           src="/images/b2.jpg"
           alt="watsap"
@@ -57,6 +58,7 @@ function Landingpage() {
           // layout="fill" // Take up the size of the parent container
           // objectFit="cover"
         />
+        </div>
           <div className={styles.caption}>
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
        <div className={styles.buttonGroup}>
