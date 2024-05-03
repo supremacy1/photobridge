@@ -1,8 +1,20 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from "../styles/Landingpage.module.css";
 import Link from 'next/link';
+
 function Landingpage() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const images = ['/images/b1.jpg', '/images/b2.jpg', '/images/b3.jfif']; // Add your image paths here
+  const intervalTime = 5000; // Time interval in milliseconds
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, intervalTime);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className={styles.maincontainer}>
       <div className={styles.contianer}>
@@ -50,14 +62,21 @@ function Landingpage() {
       </div>
       <div className={styles.imagecontainer}>
         <div className={styles.imagecover}>
-      <Image
+        {/* <div className={styles.cover}> */}
+      {/* <Image
           src="/images/b2.jpg"
           alt="watsap"
           width={1000}
           height={10}
           // layout="fill" // Take up the size of the parent container
           // objectFit="cover"
-        />
+        /> */}
+          <img
+        src={images[imageIndex]}
+        alt={`Image ${imageIndex + 1}`}
+        width={1000}
+        height={10}
+      />
         </div>
           <div className={styles.caption}>
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
