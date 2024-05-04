@@ -90,6 +90,26 @@ function Landingpage() {
        </div> */}
       </div>
         </div>
+        {/* <div className={styles.BoxContainer}>
+      <div className={styles.Box}>
+        <h1>Box 1</h1>
+        <p>This is the content of box 1.</p>
+      </div>
+      <div classname={styles.Box1}>
+        <h1>Box 2</h1>
+        <p>This is the content of box 2.</p>
+      </div>
+    </div> */}
+    <div className={styles.boxes}>
+      <div className={styles.box1}>
+        <h1>client</h1>
+        <p>hello</p>
+      </div>
+      <div className={styles.box2}>
+        <h1>customer</h1>
+        <p>manab</p>
+      </div>
+    </div>
     </div>
    
   )
