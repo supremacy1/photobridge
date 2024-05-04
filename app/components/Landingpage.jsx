@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from "../styles/Landingpage.module.css";
 import Link from 'next/link';
+import Footer from "../components/Footer.jsx"
+
 
 function Landingpage() {
   const [imageIndex, setImageIndex] = useState(0);
@@ -110,6 +112,7 @@ function Landingpage() {
         <p>manab</p>
       </div>
     </div>
+    <Footer />
     </div>
    
   )
