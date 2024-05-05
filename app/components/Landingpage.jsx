@@ -86,30 +86,16 @@ function Landingpage() {
       <button className={styles.button}>Register</button>
       <button className={styles.button}>Book a Photographer</button>
     </div>
-       {/* <div className={styles.btn}>
-       <button className={styles.btn1}>Register</button>
-       <button className={styles.btn2}>Look For A Photographer</button>
-       </div> */}
       </div>
         </div>
-        {/* <div className={styles.BoxContainer}>
-      <div className={styles.Box}>
-        <h1>Box 1</h1>
-        <p>This is the content of box 1.</p>
-      </div>
-      <div classname={styles.Box1}>
-        <h1>Box 2</h1>
-        <p>This is the content of box 2.</p>
-      </div>
-    </div> */}
     <div className={styles.boxes}>
       <div className={styles.box1}>
-        <h1>client</h1>
-        <p>hello</p>
+        <h1>Photographer</h1>
+        <p>Are you a professional Photographer / Videographer? Register and get contacted by clients for their occasion</p>
       </div>
       <div className={styles.box2}>
-        <h1>customer</h1>
-        <p>manab</p>
+        <h1>Clients</h1>
+        <p>Are you looking to add color to your occassions? Contact any of our professional Photographer</p>
       </div>
     </div>
     <Footer />
