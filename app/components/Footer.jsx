@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../styles/footer.module.css";
-
+import Link from 'next/link';
+import Gallery from "../components/Gallery.jsx"
 function Footer() {
   return (
     <div className={styles.footercontainer}>
@@ -39,11 +40,17 @@ function Footer() {
         <ul>
           <li>Home</li>
           <li>About</li>
-          <li>Gallery</li>
+          {/* <li><Link to='/Gallery'>Gallery</Link></li> */}
           <li>Contact</li>
+          {/* <Link href="/Got">
+        About Page
+      </Link> */}
         </ul>
       </nav>
-                     </div>
+    </div>
+     <div className={styles.grid}>
+
+     </div>
       </div>
     </div>
   )
