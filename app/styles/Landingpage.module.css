@@ -133,9 +133,10 @@
         /* transform: translate(20%, -50%); */
       }
       .boxes{
-      
+      width: auto;
+      height: auto;
         font-size: 10px;
-        grid-row: 3;
+        grid-row: 2;
        
       }
   }
