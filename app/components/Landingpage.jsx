@@ -7,7 +7,7 @@ import Footer from "../components/Footer.jsx"
 
 function Landingpage() {
   const [imageIndex, setImageIndex] = useState(0);
-  const images = ['/images/b1.jpg', '/images/b2.jpg', '/images/b3.jfif']; // Add your image paths here
+  const images = ['/images/b1.jpg', '/images/b2.jpg', '/images/b4.jpg']; // Add your image paths here
   const intervalTime = 5000; // Time interval in milliseconds
 
   useEffect(() => {
@@ -64,15 +64,7 @@ function Landingpage() {
       </div>
       <div className={styles.imagecontainer}>
         <div className={styles.imagecover}>
-        {/* <div className={styles.cover}> */}
-      {/* <Image
-          src="/images/b2.jpg"
-          alt="watsap"
-          width={1000}
-          height={10}
-          // layout="fill" // Take up the size of the parent container
-          // objectFit="cover"
-        /> */}
+          
           <img
         src={images[imageIndex]}
         alt={`Image ${imageIndex + 1}`}
