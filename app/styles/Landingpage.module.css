@@ -133,8 +133,8 @@
         /* transform: translate(20%, -50%); */
       }
       .boxes{
-      width: auto;
-      height: auto;
+        width: 80%;
+      height: 150px;
         font-size: 10px;
         grid-row: 2;
        
