@@ -133,6 +133,7 @@
         /* transform: translate(20%, -50%); */
       }
       .boxes{
+        width: 10px;
         font-size: 10px;
        
       }
