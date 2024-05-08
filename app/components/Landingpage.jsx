@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styles from "../styles/Landingpage.module.css";
 import Link from 'next/link';
 import Footer from "../components/Footer.jsx"
@@ -8,8 +9,8 @@ import Footer from "../components/Footer.jsx"
 function Landingpage() {
   const [imageIndex, setImageIndex] = useState(0);
   const images = ['/images/b1.jpg', '/images/b2.jpg', '/images/b4.jpg']; // Add your image paths here
-  const intervalTime = 5000; // Time interval in milliseconds
-
+  const intervalTime = 7000; // Time interval in milliseconds
+  // const router = useRouter();
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex(prevIndex => (prevIndex + 1) % images.length);
@@ -38,7 +39,7 @@ function Landingpage() {
           // objectFit="cover"
         />
           <Image
-          src="/images/watsap.png"
+          src="/images/fsf.jpg"
           alt="facebook"
           width={30}
           height={30}
@@ -53,9 +54,17 @@ function Landingpage() {
         </div>
         <div className={styles.navbars}>
       <h1>Photographer Word</h1>
+      <div className={styles.log}>
+      <Link href='/login'>
+      <button>Login</button>
+      </Link>
+      </div>
       <nav className={styles.nav1}>
         <ul>
-          <li>Home</li>
+          <li>
+            Home
+            </li>
+
           <li>About</li>
           <li>Gallery</li>
           <li>Contact</li>
@@ -64,7 +73,15 @@ function Landingpage() {
       </div>
       <div className={styles.imagecontainer}>
         <div className={styles.imagecover}>
-          
+        {/* <div className={styles.cover}> */}
+      {/* <Image
+          src="/images/b2.jpg"
+          alt="watsap"
+          width={1000}
+          height={10}
+          // layout="fill" // Take up the size of the parent container
+          // objectFit="cover"
+        /> */}
           <img
         src={images[imageIndex]}
         alt={`Image ${imageIndex + 1}`}
@@ -75,7 +92,9 @@ function Landingpage() {
           <div className={styles.caption}>
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
        <div className={styles.buttonGroup}>
+        <Link href='/register' >
       <button className={styles.button}>Register</button>
+      </Link>
       <button className={styles.button}>Book a Photographer</button>
     </div>
       </div>
