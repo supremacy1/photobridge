@@ -10,6 +10,7 @@ import Footer from "../components/Footer.jsx"
   const [formData, setFormData] = useState({
     fullname: '',
     studio: '',
+    address: '',
     email: '',
     password: '',
   });
@@ -47,9 +48,9 @@ import Footer from "../components/Footer.jsx"
           <label htmlFor="studio">Studio Name</label>
           <input
             type="text"
-            id="studioname"
-            name="studioname"
-            value={formData.fullname}
+            id="studio"
+            name="studio"
+            value={formData.studio}
             onChange={handleChange}
           />
         </div>
@@ -57,9 +58,9 @@ import Footer from "../components/Footer.jsx"
           <label htmlFor="address">Address</label>
           <input
             type="text"
-            id="fullname"
-            name="fullname"
-            value={formData.fullname}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
           />
         </div>
