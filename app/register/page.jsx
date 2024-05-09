@@ -40,6 +40,7 @@ import Footer from "../components/Footer.jsx"
             type="text"
             id="fullname"
             name="fullname"
+            placeholder='Enter Your FullName'
             value={formData.fullname}
             onChange={handleChange}
           />
@@ -50,6 +51,7 @@ import Footer from "../components/Footer.jsx"
             type="text"
             id="studio"
             name="studio"
+            placeholder='Enter Studio Name'
             value={formData.studio}
             onChange={handleChange}
           />
@@ -60,6 +62,7 @@ import Footer from "../components/Footer.jsx"
             type="text"
             id="address"
             name="address"
+            placeholder='Enter Personal or Studio Address'
             value={formData.address}
             onChange={handleChange}
           />
@@ -70,6 +73,7 @@ import Footer from "../components/Footer.jsx"
             type="email"
             id="email"
             name="email"
+            placeholder='Enter Email Address'
             value={formData.email}
             onChange={handleChange}
           />
@@ -80,6 +84,7 @@ import Footer from "../components/Footer.jsx"
             type="password"
             id="password"
             name="password"
+            placeholder='Enter Password'
             value={formData.password}
             onChange={handleChange}
           />
