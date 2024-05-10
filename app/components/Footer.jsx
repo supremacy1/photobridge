@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "../styles/footer.module.css";
 import Link from 'next/link';
-import Gallery from "../components/Gallery.jsx"
+
 function Footer() {
   return (
     <div className={styles.footercontainer}>
