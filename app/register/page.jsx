@@ -176,7 +176,7 @@ function Register() {
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="address">Address</label>
+            <label htmlFor="address">Address...</label>
             <input
               type="text"
               id="address"
