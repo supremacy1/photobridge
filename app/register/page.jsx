@@ -1,18 +1,14 @@
-// // pages/register.js
-// "use client"
-// import { useEffect, useState } from 'react';
-// // import { useRouter } from 'next/router';
+
+// export default Register
+// "use client";
+// import { useState } from 'react';
 // import styles from "../styles/register.module.css";
-// import Footer from "../components/Footer.jsx"
+// import Footer from "../components/Footer.jsx";
 // import axios from 'axios';
-// import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+// import { useRouter } from 'next/navigation';
 
-//  function Register() {
+// function Register() {
 //   const router = useRouter(); 
-//   const [message, setMessage] = useState('');
- 
-  
-
 //   const [formData, setFormData] = useState({
 //     fullname: '',
 //     studio: '',
@@ -20,7 +16,7 @@
 //     email: '',
 //     password: '',
 //   });
- 
+
 //   const handleChange = (e) => {
 //     const { name, value } = e.target;
 //     setFormData((prevData) => ({
@@ -28,90 +24,87 @@
 //       [name]: value,
 //     }));
 //   };
+
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//         const response = await axios.post('/register', formData);
-//         console.log(response.data);
-//         // You can handle success or redirect here
-//         router.push('/login');
+//       const response = await axios.post('http://localhost:3001/register', formData);
+//       console.log(response.data);
+//       router.push('/login');
 //     } catch (error) {
-//         console.error(error);
-//         // Handle error response
+//       console.error(error);
 //     }
-// };
- 
+//   };
+
 //   return (
 //     <>
-//     <div className={styles.container}>
-//       <h1>Register</h1>
-//       <form onSubmit={handleSubmit}>
-//         <div className={styles.formGroup}>
-//           <label htmlFor="fullname">Full Name</label>
-//           <input
-//             type="text"
-//             id="fullname"
-//             name="fullname"
-//             placeholder='Enter Your FullName'
-//             value={formData.fullname}
-//             onChange={handleChange}
-            
-//           />
-//         </div>
-//         <div className={styles.formGroup}>
-//           <label htmlFor="studio">Studio Name</label>
-//           <input
-//             type="text"
-//             id="studio"
-//             name="studio"
-//             placeholder='Enter Studio Name'
-//             value={formData.studio}
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className={styles.formGroup}>
-//           <label htmlFor="address">Address</label>
-//           <input
-//             type="text"
-//             id="address"
-//             name="address"
-//             placeholder='Enter Personal or Studio Address'
-//             value={formData.address}
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className={styles.formGroup}>
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             name="email"
-//             placeholder='Enter Email Address'
-//             value={formData.email}
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className={styles.formGroup}>
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             placeholder='Enter Password'
-//             value={formData.password}
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <button type="submit" >Register</button>
-
-//       </form>
+//       <div className={styles.container}>
+//         <h1>Register</h1>
+//         <form onSubmit={handleSubmit}>
+//           <div className={styles.formGroup}>
+//             <label htmlFor="fullname">Full Name</label>
+//             <input
+//               type="text"
+//               id="fullname"
+//               name="fullname"
+//               placeholder='Enter Your FullName'
+//               value={formData.fullname}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <div className={styles.formGroup}>
+//             <label htmlFor="studio">Studio Name</label>
+//             <input
+//               type="text"
+//               id="studio"
+//               name="studio"
+//               placeholder='Enter Studio Name'
+//               value={formData.studio}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <div className={styles.formGroup}>
+//             <label htmlFor="address">Address...</label>
+//             <input
+//               type="text"
+//               id="address"
+//               name="address"
+//               placeholder='Enter Personal or Studio Address'
+//               value={formData.address}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <div className={styles.formGroup}>
+//             <label htmlFor="email">Email</label>
+//             <input
+//               type="email"
+//               id="email"
+//               name="email"
+//               placeholder='Enter Email Address'
+//               value={formData.email}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <div className={styles.formGroup}>
+//             <label htmlFor="password">Password</label>
+//             <input
+//               type="password"
+//               id="password"
+//               name="password"
+//               placeholder='Enter Password'
+//               value={formData.password}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <button type="submit">Register</button>
+//         </form>
 //       </div>
-//      <Footer />
-   
-//      </>
+//       <Footer />
+//     </>
 //   );
 // }
-// export default Register
+
+// export default Register;
 "use client";
 import { useState } from 'react';
 import styles from "../styles/register.module.css";
@@ -128,6 +121,8 @@ function Register() {
     email: '',
     password: '',
   });
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -139,12 +134,28 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
+
+    const { fullname, studio, address, email, password } = formData;
+
+    if (!fullname || !studio || !address || !email || !password) {
+      setError('All fields are required');
+      return;
+    }
+
     try {
       const response = await axios.post('http://localhost:3001/register', formData);
-      console.log(response.data);
-      router.push('/login');
+      setSuccess(response.data.message);
+      setTimeout(() => {
+        router.push('/login');
+      }, 5000); // Redirect to login page after 2 seconds
     } catch (error) {
-      console.error(error);
+      if (error.response) {
+        setError(error.response.data.error);
+      } else {
+        setError('An error occurred. Please try again.');
+      }
     }
   };
 
@@ -153,13 +164,15 @@ function Register() {
       <div className={styles.container}>
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
+          {error && <div className={styles.error}>{error}</div>}
+          {success && <div className={styles.success}>{success}</div>}
           <div className={styles.formGroup}>
             <label htmlFor="fullname">Full Name</label>
             <input
               type="text"
               id="fullname"
               name="fullname"
-              placeholder='Enter Your FullName'
+              placeholder='Enter Your Full Name'
               value={formData.fullname}
               onChange={handleChange}
             />
@@ -176,7 +189,7 @@ function Register() {
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="address">Address...</label>
+            <label htmlFor="address">Address</label>
             <input
               type="text"
               id="address"
