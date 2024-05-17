@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Boat() {
+function page() {
   return (
     <div>
-      <h1>slode</h1>
+      <h2>Home page</h2>
     </div>
   )
 }
 
-export default Boat
+export default page

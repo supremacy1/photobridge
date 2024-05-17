@@ -7,6 +7,8 @@ import Footer from "../components/Footer.jsx"
 
 
 function Landingpage() {
+  const [data, setData] = useState([]);
+
   const [imageIndex, setImageIndex] = useState(0);
   const images = ['/images/b1.jpg', '/images/b2.jpg', '/images/b4.jpg']; // Add your image paths here
   const intervalTime = 7000; // Time interval in milliseconds
@@ -17,6 +19,18 @@ function Landingpage() {
     }, intervalTime);
 
     return () => clearInterval(interval);
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/data');
+        const result = await response.json();
+        setData(result);
+        console.log(result); // This logs the fetched data
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    
+    fetchData();
   }, []);
   return (
     <div className={styles.maincontainer}>
@@ -108,6 +122,14 @@ function Landingpage() {
         <h1>Clients</h1>
         <p>Are you looking to add color to your occassions? Contact any of our professional Photographer</p>
       </div>
+    </div>
+    <div>
+      <h1>Data from API</h1>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
     </div>
     <Footer />
     </div>

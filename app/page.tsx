@@ -3,6 +3,7 @@ import Image from "next/image";
 // import Link from 'next/link';
 // import NavBar from "./components/Navbar.jsx"
 import Landingpage from "./components/Landingpage.jsx"
+import Gallery from "./components/Gallery.jsx"
 // import Register from "./components/Registeration.jsx"
 // import Login from "./components/Login.jsx"
 
@@ -12,6 +13,7 @@ export default function Home() {
       {/* <li>
             <Link href="/components/Registeration">Home            </Link>
             </li> */}
+            {/* <Gallery /> */}
     <Landingpage />
    {/* <Register /> */}
    {/* <Login /> */}
