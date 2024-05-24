@@ -7,6 +7,7 @@
 
 // function Login() {
 //   const [message, setMessage] = useState('');
+//   const [fullname, setFullname] = useState('');
 //   const router = useRouter();
 //   const [formData, setFormData] = useState({
 //     email: '',
@@ -23,28 +24,39 @@
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
+//     setMessage(''); // Reset message
+  
+//     const { email, password } = formData;
+  
+//     // Validate fields
+//     if (!email || !password) {
+//       setMessage('Please provide email and password');
+//       return;
+//     }
+  
 //     try {
 //       const response = await axios.post('http://localhost:3001/login', formData);
-//       console.log(response.data);
-//       // Handle success, redirect to dashboard or another page
-//       router.push('/dashboard'); // Redirect after successful login
+//       localStorage.setItem('fullname', response.data.fullname); // Store fullname in local storage
+//       setMessage(response.data.message);
+//       setTimeout(() => {
+//         router.push('/dashboard'); // Redirect after successful login
+//       }, 1000); // Redirect after 1 second
 //     } catch (error) {
-//       if (error.response.status === 404) {
-//             setMessage('User not found'); // Set message for user not found
-//           } else {
-//             setMessage('All Field is Required'); // Set generic error message
-//           }
-//       console.error(error);
-//       // Handle error, show error message to user
+//       if (error.response) {
+//         setMessage(error.response.data.message); // Set specific error message from backend
+//       } else {
+//         setMessage('An error occurred. Please try again.');
+//       }
 //     }
 //   };
-
-
+  
 //   return (
 //     <>
 //       <div className={styles.container}>
 //         <h1>Login</h1>
 //         <form onSubmit={handleSubmit}>
+//           {message && <div className={styles.message}>{message}</div>}
+//           {fullname && <div className={styles.welcome}>Welcome, {fullname}!</div>}
 //           <div className={styles.formGroup}>
 //             <label htmlFor="email">Email</label>
 //             <input
@@ -76,8 +88,16 @@
 // }
 
 // export default Login;
+// //ALTER TABLE images ADD user_id INT;
+// //ALTER TABLE images ADD CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id);
+// "use client";
+// import { useState } from 'react';
+// import styles from "../styles/login.module.css";
+// import Footer from "../components/Footer.jsx";
+// import axios from 'axios';
+// import { useRouter } from 'next/navigation';
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from "../styles/login.module.css";
 import Footer from "../components/Footer.jsx";
 import axios from 'axios';
@@ -100,42 +120,63 @@ function Login() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage(''); // Reset message
-    //alert the name on the screen
-    // setFullname('');
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setMessage(''); // Reset message
+  
+  //   const { email, password } = formData;
+  
+  //   // Validate fields
+  //   if (!email || !password) {
+  //     setMessage('Please provide email and password');
+  //     return;
+  //   }
+  
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/login', formData);
+  //     localStorage.setItem('fullname', response.data.fullname); // Store fullname in local storage
+  //     localStorage.setItem('userId', response.data.userId); // Store userId in local storage
+  //     setMessage(response.data.message);
+  //     setTimeout(() => {
+  //       router.push('/dashboard'); // Redirect after successful login
+  //     }, 1000); // Redirect after 1 second
+  //   } catch (error) {
+  //     if (error.response) {
+  //       setMessage(error.response.data.message); // Set specific error message from backend
+  //     } else {
+  //       setMessage('An error occurred. Please try again.');
+  //     }
+  //   }
+  // };
+  // Existing Login component with the handleSubmit method adjusted
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setMessage(''); // Reset message
 
-    const { email, password } = formData;
+  const { email, password } = formData;
 
-    // Validate fields
-    if (!email || !password) {
-      setMessage('Please provide email and password');
-      return;
+  // Validate fields
+  if (!email || !password) {
+    setMessage('Please provide email and password');
+    return;
+  }
+
+  try {
+    const response = await axios.post('http://localhost:3001/login', formData);
+    localStorage.setItem('fullname', response.data.fullname); // Store fullname in local storage
+    localStorage.setItem('userId', response.data.userId); // Store userId in local storage
+    setMessage(response.data.message);
+    setTimeout(() => {
+      router.push('/dashboard'); // Redirect after successful login
+    }, 1000); // Redirect after 1 second
+  } catch (error) {
+    if (error.response) {
+      setMessage(error.response.data.message); // Set specific error message from backend
+    } else {
+      setMessage('An error occurred. Please try again.');
     }
-
-    try {
-       //alert the name on the screen
-      // const response = await axios.post('http://localhost:3001/login', formData);
-      // setFullname(response.data.fullname); // Set fullname on successful login
-      // setMessage(response.data.message);
-      // setTimeout(() => {
-      //   router.push('/dashboard'); // Redirect after successful login
-      // }, 2000); // Redirect after 2 seconds
-      const response = await axios.post('http://localhost:3001/login', formData);
-      localStorage.setItem('fullname', response.data.fullname); // Store fullname in local storage
-      setMessage(response.data.message);
-      setTimeout(() => {
-        router.push('/dashboard'); // Redirect after successful login
-      }, 2000); // Redirect after 2 seconds
-    } catch (error) {
-      if (error.response) {
-        setMessage(error.response.data.message); // Set specific error message from backend
-      } else {
-        setMessage('An error occurred. Please try again.');
-      }
-    }
-  };
+  }
+};
 
   return (
     <>

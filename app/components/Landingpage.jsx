@@ -138,3 +138,5 @@ function Landingpage() {
 }
 
 export default Landingpage
+
+// CREATE TABLE `photousers`.`users` (`user_id` INT(100) NULL AUTO_INCREMENT , `fullname` VARCHAR(100) NOT NULL , `studio` VARCHAR(100) NOT NULL , `address` INT(45) NOT NULL , `phone` INT(100) NOT NULL , `email` INT(100) NOT NULL , `password` VARCHAR(1000) NOT NULL , PRIMARY KEY (`user_id`)) ENGINE = InnoDB;

@@ -118,6 +118,7 @@ function Register() {
     fullname: '',
     studio: '',
     address: '',
+    phone: '',
     email: '',
     password: '',
   });
@@ -137,9 +138,9 @@ function Register() {
     setError('');
     setSuccess('');
 
-    const { fullname, studio, address, email, password } = formData;
+    const { fullname, studio, address, phone, email, password } = formData;
 
-    if (!fullname || !studio || !address || !email || !password) {
+    if (!fullname || !studio || !address || !phone || !email || !password) {
       setError('All fields are required');
       return;
     }
@@ -149,7 +150,7 @@ function Register() {
       setSuccess(response.data.message);
       setTimeout(() => {
         router.push('/login');
-      }, 5000); // Redirect to login page after 2 seconds
+      }, 1000); // Redirect to login page after 2 seconds
     } catch (error) {
       if (error.response) {
         setError(error.response.data.error);
@@ -196,6 +197,17 @@ function Register() {
               name="address"
               placeholder='Enter Personal or Studio Address'
               value={formData.address}
+              onChange={handleChange}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="phone">Phone No.</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder='Enter Your phone Number'
+              value={formData.phone}
               onChange={handleChange}
             />
           </div>
