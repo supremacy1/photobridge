@@ -1,0 +1,22 @@
+.container {
+    padding: 20px;
+  }
+  
+  .usersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .userCard {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+  }
+  
+  .userCard:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
