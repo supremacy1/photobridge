@@ -104,12 +104,16 @@ function Landingpage() {
       />
         </div>
           <div className={styles.caption}>
+           
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
+       
        <div className={styles.buttonGroup}>
         <Link href='/register' >
       <button className={styles.button}>Register</button>
       </Link>
+      <Link href='/vistordashboard' >
       <button className={styles.button}>Book a Photographer</button>
+      </Link>
     </div>
       </div>
         </div>
@@ -124,7 +128,7 @@ function Landingpage() {
       </div>
     </div>
     <div>
-      <h1>Data from API</h1>
+      {/* <h1>Data from API</h1> */}
       <ul>
         {data.map(item => (
           <li key={item.id}>{item.name}</li>

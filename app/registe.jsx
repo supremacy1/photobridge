@@ -789,3 +789,54 @@
   //   }
   // };
   // Existing Login component with the handleSubmit method adjusted
+
+  
+// // Fetch all users
+// app.get('/users', (req, res) => {
+//   const SELECT_USERS_QUERY = 'SELECT user_id, fullname, studio, email FROM users';
+//   db.query(SELECT_USERS_QUERY, (err, results) => {
+//     if (err) {
+//       console.error('Error fetching users:', err);
+//       return res.status(500).send({ error: 'Error fetching users' });
+//     }
+//     res.status(200).send(results);
+//   });
+// });
+
+// // Fetch specific user details
+// app.get('/user/:id', (req, res) => {
+//   const userId = req.params.id;
+
+//   const SELECT_USER_DETAILS_QUERY = `
+//     SELECT fullname, studio, address, phone, email, profile_picture 
+//     FROM users 
+//     WHERE user_id = ?;
+//   `;
+
+//   const SELECT_USER_IMAGES_QUERY = `
+//     SELECT image_path 
+//     FROM images 
+//     WHERE user_id = ?;
+//   `;
+
+//   db.query(SELECT_USER_DETAILS_QUERY, [userId], (err, userResults) => {
+//     if (err) {
+//       console.error('Error fetching user details:', err);
+//       return res.status(500).send({ error: 'Error fetching user details' });
+//     }
+
+//     if (userResults.length === 0) {
+//       return res.status(404).send({ error: 'User not found' });
+//     }
+
+//     db.query(SELECT_USER_IMAGES_QUERY, [userId], (err, imageResults) => {
+//       if (err) {
+//         console.error('Error fetching user images:', err);
+//         return res.status(500).send({ error: 'Error fetching user images' });
+//       }
+
+//       res.status(200).send({ user: userResults[0], images: imageResults });
+//     });
+//   });
+// });
+
