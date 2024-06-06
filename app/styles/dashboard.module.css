@@ -1,4 +1,4 @@
-.container {
+/* .container {
   padding: 20px;
 }
 
@@ -138,4 +138,74 @@
 
 .previewOverlay.show {
   display: flex;
+} */
+/* styles/dashboard.module.css */
+.container {
+  padding: 20px;
+}
+
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.userCard {
+  border: 1px solid #ccc;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.userCard:hover {
+  background-color: #f0f0f0;
+}
+
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.previewOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.previewOverlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.previewOverlay img {
+  max-width: 90%;
+  max-height: 90%;
 }

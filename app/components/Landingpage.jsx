@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Footer from "../components/Footer.jsx"
 
 
+
 function Landingpage() {
   const [data, setData] = useState([]);
 
@@ -104,14 +105,13 @@ function Landingpage() {
       />
         </div>
           <div className={styles.caption}>
-           
        <h1 className={styles.text}>BOOK YOUR PHOTOGRAPHER</h1>
        
        <div className={styles.buttonGroup}>
         <Link href='/register' >
       <button className={styles.button}>Register</button>
       </Link>
-      <Link href='/vistordashboard' >
+      <Link href='/poop' >
       <button className={styles.button}>Book a Photographer</button>
       </Link>
     </div>
