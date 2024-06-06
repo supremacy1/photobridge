@@ -111,7 +111,7 @@ function Landingpage() {
         <Link href='/register' >
       <button className={styles.button}>Register</button>
       </Link>
-      <Link href='/poop' >
+      <Link href='/allUsersDashboard' >
       <button className={styles.button}>Book a Photographer</button>
       </Link>
     </div>

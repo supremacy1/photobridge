@@ -48,6 +48,61 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+// app.post('/register', (req, res) => {
+//   const { fullname, studio, address, phone, email, password } = req.body;
+
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   if (!emailRegex.test(email)) {
+//     return res.status(400).json({ message: 'Invalid email format' });
+//   }
+//   if (!fullname || !studio || !address || !phone || !email || !password) {
+//     return res.status(400).send({ error: 'All fields are required' });
+//   }
+
+//   const CHECK_EMAIL_QUERY = `SELECT * FROM users WHERE email = ?`;
+//   db.query(CHECK_EMAIL_QUERY, [email], (err, results) => {
+//     if (err) {
+//       console.error('Error checking email:', err);
+//       return res.status(500).send({ error: 'Error registering user' });
+//     }
+
+//     if (results.length > 0) {
+//       return res.status(400).send({ error: 'Email already exists' });
+//     }
+
+//     const INSERT_USER_QUERY = `INSERT INTO users (fullname, studio, address, phone, email, password) VALUES (?, ?, ?, ?, ?, ?)`;
+//     db.query(INSERT_USER_QUERY, [fullname, studio, address, phone, email, password], (err, result) => {
+//       if (err) {
+//         console.error('Error inserting user:', err);
+//         return res.status(500).send({ error: 'Error registering user' });
+//       }
+
+//       res.status(200).send({ message: 'User registered successfully' });
+//     });
+//   });
+// });
+
+// app.post('/login', (req, res) => {
+//   const { email, password } = req.body;
+
+//   if (!email || !password) {
+//     return res.status(400).json({ message: 'Please provide email and password' });
+//   }
+
+//   const SELECT_USER_QUERY = 'SELECT user_id, fullname FROM users WHERE email = ? AND password = ?';
+//   db.query(SELECT_USER_QUERY, [email, password], (err, result) => {
+//     if (err) {
+//       return res.status(500).json({ message: 'Error while logging in' });
+//     }
+//     if (result.length === 0) {
+//       return res.status(404).json({ message: 'Invalid credentials' });
+//     }
+//     return res.status(200).json({ message: 'Login successful', userId: result[0].user_id, fullname: result[0].fullname });
+//   });
+// });
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 app.post('/register', (req, res) => {
   const { fullname, studio, address, phone, email, password } = req.body;
 
@@ -70,18 +125,25 @@ app.post('/register', (req, res) => {
       return res.status(400).send({ error: 'Email already exists' });
     }
 
-    const INSERT_USER_QUERY = `INSERT INTO users (fullname, studio, address, phone, email, password) VALUES (?, ?, ?, ?, ?, ?)`;
-    db.query(INSERT_USER_QUERY, [fullname, studio, address, phone, email, password], (err, result) => {
+    // Hash the password using bcrypt
+    bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
       if (err) {
-        console.error('Error inserting user:', err);
+        console.error('Error hashing password:', err);
         return res.status(500).send({ error: 'Error registering user' });
       }
 
-      res.status(200).send({ message: 'User registered successfully' });
+      const INSERT_USER_QUERY = `INSERT INTO users (fullname, studio, address, phone, email, password) VALUES (?, ?, ?, ?, ?, ?)`;
+      db.query(INSERT_USER_QUERY, [fullname, studio, address, phone, email, hashedPassword], (err, result) => {
+        if (err) {
+          console.error('Error inserting user:', err);
+          return res.status(500).send({ error: 'Error registering user' });
+        }
+
+        res.status(201).send({ message: 'User registered successfully' });
+      });
     });
   });
 });
-
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -89,15 +151,27 @@ app.post('/login', (req, res) => {
     return res.status(400).json({ message: 'Please provide email and password' });
   }
 
-  const SELECT_USER_QUERY = 'SELECT user_id, fullname FROM users WHERE email = ? AND password = ?';
-  db.query(SELECT_USER_QUERY, [email, password], (err, result) => {
+  const SELECT_USER_QUERY = 'SELECT user_id, fullname, password FROM users WHERE email = ?';
+  db.query(SELECT_USER_QUERY, [email], (err, results) => {
     if (err) {
       return res.status(500).json({ message: 'Error while logging in' });
     }
-    if (result.length === 0) {
+    if (results.length === 0) {
       return res.status(404).json({ message: 'Invalid credentials' });
     }
-    return res.status(200).json({ message: 'Login successful', userId: result[0].user_id, fullname: result[0].fullname });
+
+    const user = results[0];
+    // Compare the provided password with the hashed password stored in the database
+    bcrypt.compare(password, user.password, (err, isMatch) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error while logging in' });
+      }
+      if (!isMatch) {
+        return res.status(404).json({ message: 'Invalid credentials' });
+      }
+
+      return res.status(200).json({ message: 'Login successful', userId: user.user_id, fullname: user.fullname });
+    });
   });
 });
 
