@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from "../styles/dashboard.module.css";
 import Footer from "../components/Footer.jsx";
+import Link from 'next/link';
 
 function Dashboard() {
   const [fullname, setFullname] = useState('');
@@ -109,7 +110,9 @@ function Dashboard() {
   return (
     <>
       <div className={styles.container}>
-        <h1>Dashboard</h1>
+        {/* <Link href = "/home">
+        <button className={styles.home}>Home</button>
+        </Link> */}
         {fullname && <div className={styles.welcome}>Welcome, {fullname}!</div>}
         
         <div className={styles.uploadContainer}>
@@ -118,7 +121,7 @@ function Dashboard() {
         </div>
         <div className={styles.uploadContainer}>
           <input type="file" multiple onChange={handleFileChange} />
-          <button onClick={handleUpload}>Upload Images</button>
+          <button  onClick={handleUpload}>Upload Images</button>
         </div>
         <div className={styles.imagesContainer}>
           {images.map((image) => (

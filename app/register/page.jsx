@@ -55,6 +55,7 @@ function Register() {
 
   return (
     <>
+     <div className={styles.maincontainer}>
       <div className={styles.container}>
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
@@ -128,6 +129,7 @@ function Register() {
           </div>
           <button type="submit">Register</button>
         </form>
+      </div>
       </div>
       <Footer />
     </>

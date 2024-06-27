@@ -1,7 +1,27 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/bg-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+} */
 .container {
     padding: 20px;
+
   }
-  
+  .container h1{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
+  }
   .usersContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -11,7 +31,7 @@
   .userCard {
     border: 1px solid #ddd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: box-shadow 0.3s;
   }
@@ -22,7 +42,13 @@
   .container {
     padding: 20px;
   }
+  .usersContainer {
+    display: grid;
+    gap: 200px;
+    color: #005bb5;
+    font-size: 10px;
   
+  }
   .usersContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -130,3 +156,23 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  /* @media screen and (max-width: 600px) {
+    .previewOverlay {
+      width: 50%;
+      justify-items: center;
+     
+    }
+    .nextButton{
+      font-size: 10px;
+    }
+  } */
+  @media screen and (max-width: 600px) {
+    .previewOverlay img {
+        max-width: 60%;
+        max-height: 60%;
+    }
+    .prevButton, .nextButton, .closeButton {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}

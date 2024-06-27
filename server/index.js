@@ -4,8 +4,13 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
+const bodyParser = require('body-parser');
+// const { sequelize } = require('./models');
 
 const app = express();
+app.use(bodyParser.json());
+// app.use('/auth', require('./routes/auth'));
+
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -316,6 +321,55 @@ app.get('/user/:id', (req, res) => {
     });
   });
 });
+
+app.post('/reset-password', (req, res) => {
+  const { email, phone, newPassword } = req.body;
+
+  if (!email || !phone || !newPassword) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const SELECT_USER_QUERY = 'SELECT user_id, password, phone FROM users WHERE email = ?';
+  db.query(SELECT_USER_QUERY, [email], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Error while resetting password' });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const user = results[0];
+    if (user.phone !== phone) {
+      return res.status(400).json({ message: 'Phone number does not match' });
+    }
+
+    // bcrypt.compare(existingPassword, user.password, (err, isMatch) => {
+    //   if (err) {
+    //     return res.status(500).json({ message: 'Error while resetting password' });
+    //   }
+    //   if (!isMatch) {
+    //     return res.status(400).json({ message: 'Existing password is incorrect' });
+    //   }
+
+      bcrypt.hash(newPassword, saltRounds, (err, hashedPassword) => {
+        if (err) {
+          return res.status(500).json({ message: 'Error while resetting password' });
+        }
+
+        const UPDATE_PASSWORD_QUERY = 'UPDATE users SET password = ? WHERE user_id = ?';
+        db.query(UPDATE_PASSWORD_QUERY, [hashedPassword, user.user_id], (err) => {
+          if (err) {
+            return res.status(500).json({ message: 'Error while resetting password' });
+          }
+
+          res.status(200).json({ message: 'Password reset successfully' });
+        });
+      });
+    });
+  });
+// });
+
+
 
 
 const PORT = process.env.PORT || 3001;

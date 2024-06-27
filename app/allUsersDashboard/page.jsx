@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from '../styles/allUsersDashboard.module.css';
 import Footer from '../components/Footer';
+// import '/styles/globals.css'
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -77,17 +78,19 @@ export default function Home() {
 
   return (
     <>
+     <div className={styles.maincontainer}>
       <div className={styles.container}>
         {!selectedUser ? (
           <>
-            <h1>All Users</h1>
+            <h1>All Certify photographer</h1>
             <div className={styles.usersContainer}>
               {users.map((user) => (
                 <div key={user.user_id} className={styles.userCard} onClick={() => handleUserClick(user.user_id)}>
                 {user.profile_picture && <img src={`http://localhost:3001/${user.profile_picture}`} alt="Profile" className={styles.profilePicture} />}
-                  <h3>{user.fullname}</h3>
-                  <p>{user.studio}</p>
-                  <p>{user.email}</p>
+                  <h3><strong>Name:</strong> {user.fullname}</h3>
+                  <p><strong>Studio Name:</strong>{user.studio}</p>
+                  <p><strong>Phone:</strong>{user.phone}</p>
+                  <p><strong>Email:</strong>{user.email}</p>
                 </div>
               ))}
             </div>
@@ -136,7 +139,7 @@ export default function Home() {
           <button className={styles.closeButton} onClick={handleCloseProfilePreview}>Close</button>
         </div>
       )}
-
+</div>
       <Footer />
     </>
   );

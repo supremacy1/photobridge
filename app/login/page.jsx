@@ -6,6 +6,7 @@ import styles from "../styles/login.module.css";
 import Footer from "../components/Footer.jsx";
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 function Login() {
   const [message, setMessage] = useState('');
@@ -83,6 +84,11 @@ const handleSubmit = async (e) => {
             />
           </div>
           <button type="submit">Login</button>
+          <div className={styles.forgotbtn}>
+          <Link href = "/reset-password">
+          <button>Forgot Password</button>
+          </Link>
+          </div>
         </form>
       </div>
       <Footer />

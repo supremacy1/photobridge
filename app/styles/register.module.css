@@ -5,11 +5,15 @@
     background-color: #007bff;
     max-width: 400px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 50px;
     border: 1px solid #1521c5;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+  /* .maincontainer{
+    background-color: #0e0b0b;
+    max-height: 22px;
+  } */
   .container h1{
     color: #ecd7d7;
     font-family: cursive;
@@ -33,9 +37,9 @@
   .formGroup input[type='email'],
   .formGroup input[type='password'] {
     width: 100%;
-    padding: 8px;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 9px;
     box-shadow: 2px 4px rgb(86, 138, 216);
   }
   

@@ -1,59 +1,80 @@
+ "use client"
 import Image from "next/image";
 import { useState } from 'react';
-import styles from "../styles/Navbar.module.css"; // Import CSS module
-import PictureSlider from "../components/Slide.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import styles from "../styles/nav.module.css";
+import Link from "next/link";
+
+
 const NavBar = () => {
   return (
     <>
     <div className={styles.maincontainer}>
-      <div className={styles.mainbar}>
-     <div className={styles.navbar}>
-      <div className={styles.naviteams}>
-     {/* <img src="/images/G9.svg" alt="Image 2" /> */}
-      <h1>Photograh</h1>
-      {/* <nav>
-     <ul>
-      <li>Help</li>
-     </ul>
-     </nav> */}
+      <div className={styles.contianer}>
+      {/* <div className={styles.image}>
+        <Image
+          src="/images/x.jpg"
+          alt="x"
+          width={30}
+          height={30}
+          // layout="fill" // Take up the size of the parent container
+          // objectFit="cover"
+        />
+          <Image
+          src="/images/watsap.png"
+          alt="watsap"
+          width={30}
+          height={30}
+          // layout="fill" // Take up the size of the parent container
+          // objectFit="cover"
+        />
+          <Image
+          src="/images/fsf.jpg"
+          alt="facebook"
+          width={30}
+          height={30}
+          // layout="fill" // Take up the size of the parent container
+          // objectFit="cover"
+        />
+        </div> */}
+        <div className={styles.socialMedia}>
+        <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.icon}>
+          <FontAwesomeIcon icon={faFacebook} />
+        </Link>
+        <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={styles.icon}>
+          <FontAwesomeIcon icon={faTwitter} />
+        </Link>
+        <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.icon}>
+          <FontAwesomeIcon icon={faInstagram} />
+        </Link>
+        <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.icon}>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </Link>
       </div>
-     </div>
-     {/* <button>Help</button> */}
-     <nav className={styles.nave}>
-      
-     <ul>
-      <li>Help</li>
-     </ul>
-     </nav>
-     </div>
-     <PictureSlider />
-    </div>
+        <div className={styles.subnav}>
+          <h1>07026214314</h1>
+          <h1>Email: andrewohej@gmail.com</h1>
+        </div>
+        </div>
+        <div className={styles.navbars}>
+      <h1>Photographer Word</h1>
+      <nav className={styles.nav1}>
+        <ul>
+          <li>
+            Home
+            </li>
 
+          <li>About</li>
+          <li>Gallery</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      </div>
+      </div>
+    
     </>
   );
 };
 
 export default NavBar;
-// components/NavBar.js
-// import Image from "next/image";
-// import  "../styles/right.module.css"; // Import CSS module
-
-// const Rightbar = () => {
-//   return (
-//     <nav className="vertical-navbar">
-//       <ul>
-//         <li>
-//           <img src="/images/E2.svg" alt="Image 1" />
-//           <a href="#">Home</a>
-//         </li>
-//         <li>
-//           <img src="/images/E3.svg" alt="Image 2" />
-//           <a href="#">Timeline</a>
-//         </li>
-//         {/* Add more list items as needed */}
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Rightbar;
