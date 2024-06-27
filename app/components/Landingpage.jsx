@@ -68,7 +68,7 @@ function Landingpage() {
     <div className={styles.boxes}>
       <div className={styles.box1}>
         <h1>Photographer</h1>
-        <p>Are you a professional Photographer / Videographer? Register and get contacted by clients for their occasion</p>
+        <p>Are you a professional Photographer / Videographer ? Register and get contacted by clients for their occasion</p>
       </div>
       <div className={styles.box2}>
         <h1>Clients</h1>
