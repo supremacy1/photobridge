@@ -1,178 +1,185 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  background-image: url('/bg-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-} */
 .container {
-    padding: 20px;
+  padding: 20px;
 
-  }
-  .container h1{
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    width: fit-content;
-  }
-  .usersContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .userCard {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
-  }
-  
-  .userCard:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .container {
-    padding: 20px;
-  }
-  .usersContainer {
-    display: grid;
-    gap: 200px;
-    color: #005bb5;
-    font-size: 10px;
-  
-  }
-  .usersContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .userCard {
-    border: 1px solid #ccc;
-    padding: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .userCard:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .backButton {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .backButton:hover {
-    background-color: #005bb5;
-  }
-  
-  .profilePicture {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .imagesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .imageWrapper {
-    position: relative;
-  }
-  
-  .imageWrapper img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-  }
-  
+}
+.container h1{
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: fit-content;
+}
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.innertext p {
+
+color: #212d3b;
+
+}
+.userCard {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.userCard:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container {
+  padding: 20px;
+}
+.usersContainer {
+  display: grid;
+  gap: 100px;
+  color: #f7f8fa;
+  font-size: 15px;
+
+}
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.userCard {
+  border: 1px solid #ccc;
+  padding: 20px;
+  cursor: pointer;
+  color: #212d3b;
+  transition: background-color 0.3s ease;
+}
+
+/* .userCard:hover {
+  background-color: #0905f1;
+} */
+
+.backButton {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.backButton:hover {
+  background-color: #b50027;
+}
+
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  /* border: 2px solid red; */
+  box-shadow: 3px 3px 3px;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.previewOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.previewOverlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.previewOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+}
+.prevButton{
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.nextButton{
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.closeButton{
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* @media screen and (max-width: 600px) {
   .previewOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  
-  .previewOverlay.show {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .previewOverlay img {
-    max-width: 90%;
-    max-height: 90%;
-  }
-  .prevButton{
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    width: 50%;
+    justify-items: center;
+   
   }
   .nextButton{
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    font-size: 10px;
   }
-  .closeButton{
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+} */
+@media screen and (max-width: 600px) {
+  .previewOverlay img {
+      max-width: 60%;
+      max-height: 60%;
   }
-  /* @media screen and (max-width: 600px) {
-    .previewOverlay {
-      width: 50%;
-      justify-items: center;
-     
-    }
-    .nextButton{
-      font-size: 10px;
-    }
-  } */
-  @media screen and (max-width: 600px) {
-    .previewOverlay img {
-        max-width: 60%;
-        max-height: 60%;
-    }
-    .prevButton, .nextButton, .closeButton {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
+  .prevButton, .nextButton, .closeButton {
+      font-size: 12px;
+      padding: 5px 10px;
+  }
+}
+@media screen and (max-width: 1000px)  {
+.previewOverlay img {
+    max-width: 70%;
+    max-height: 60%;
+}
+.prevButton, .nextButton, .closeButton {
+    font-size: 12px;
+    padding: 5px 10px;
+}
 }

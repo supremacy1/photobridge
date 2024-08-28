@@ -1,6 +1,9 @@
-/* styles/dashboard.module.css */
 .container {
   padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #f3e7e7;
+ 
 }
 
 .usersContainer {
@@ -36,6 +39,7 @@
 
 .imageWrapper {
   position: relative;
+  color: red;
 }
 
 .imageWrapper img {
@@ -68,6 +72,29 @@
   max-width: 90%;
   max-height: 90%;
 }
-/* .uploadContainer button{
-  background-color: aqua;
+.uploadContainer button{
+  color: #f5f7fa;
+  font-weight: 100;
+}
+.welcome{
+  color: #007bff;
+  font-weight: 100;
+}
+.profilePicture{
+
+  border: 3px solid #007bff;
+}
+.uploadContainer{
+  background-color: #0f59ee;
+
+}
+/* .uploadContainer button:hover {
+  background-color: #5b3794;
 } */
+ /* .imagesContainer{
+  color: aquamarine;
+ } */
+  .uploadContainer input{
+    color: #f5faff;;
+
+  }
