@@ -156,7 +156,7 @@ function Landingpage() {
           <Link href='/allUsersDashboard'>
             <button className={styles.getStartedButton1}>Book A Photographer</button>
           </Link>
-          <div className={styles.asSeenOn}>a
+          <div className={styles.asSeenOn}>
             <p>BOOK FOR YOUR:</p>
             <div className={styles.logos}>
               <span>WEDDING:</span>
