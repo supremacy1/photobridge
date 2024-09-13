@@ -159,7 +159,7 @@ function Landingpage() {
           <div className={styles.asSeenOn}>
             <p>BOOK FOR YOUR:</p>
             <div className={styles.logos}>
-              <span>WEDDING:</span>
+              <span>WEDDINGs:</span>
               <span>BIRTHDAY:</span>
               <span>DEDICATION:</span>
               <span>EVENTS</span>
