@@ -113,7 +113,7 @@ function Dashboard() {
         {/* <Link href = "/home">
         <button className={styles.home}>Home</button>
         </Link> */}
-        {fullname && <div className={styles.welcome}>Welcome, {fullname}!</div>}
+        {fullname && <div className={styles.welcome}>Welcome Back, {fullname}!</div>}
         
         <div className={styles.uploadContainer}>
           <input type="file" accept="image/*" onChange={handleProfilePictureChange} />

@@ -77,15 +77,15 @@
   font-weight: 100;
 }
 .welcome{
-  color: #007bff;
+  color: #0f1011;
   font-weight: 100;
 }
 .profilePicture{
 
-  border: 3px solid #007bff;
+  border: 3px solid #a9abad;
 }
 .uploadContainer{
-  background-color: #0f59ee;
+  background-color: #08296d;
 
 }
 /* .uploadContainer button:hover {
