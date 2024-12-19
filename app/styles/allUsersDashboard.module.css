@@ -55,6 +55,7 @@ color: #212d3b;
   cursor: pointer;
   color: #212d3b;
   transition: background-color 0.3s ease;
+  font-size: 10px;
 }
 
 .userCard:hover {

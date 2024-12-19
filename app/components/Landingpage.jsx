@@ -209,6 +209,11 @@ import React, { useState, useEffect } from 'react';
 import styles from "../styles/Landingpage.module.css";
 import Footer from "../components/Footer.jsx";
 import Link from 'next/link';
+
+
+
+
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0); // State for current image index
@@ -246,15 +251,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Aperture Digital Marketplace</title>
-        <meta name="description" content="A digital marketplace for stunning photos and videos." />
+        <title>PhotoBridge Digital Place</title>
+        <meta name="description" content="Your go-to platform for finding photographers." />
       </Head>
 
       {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Image src="/images/SUB.jpg" alt="Aperture Logo" width={50} height={50} />
-          <span>Aperture</span>
+          <Image src="/images/SUB.jpg" alt="Aperture Logo" border-radius="50%" width={50} height={50} />
+          <span>PhotoBridge</span>
         </div>
         <button className={styles.menuButton} onClick={toggleMenu}>
           ☰
@@ -278,8 +283,8 @@ export default function Home() {
           transition: 'background-image 0.5s ease-in-out',
         }}
       >
-        <h1>Aperture A place to find professional photographers</h1>
-        <p></p>
+        <h1>PhotoBridge A place to find professional photographers</h1>
+        <p>Your go-to platform for finding photographers.</p>
         <div className={styles.features}>
           <div>  <Link href='/allUsersDashboard'>
            <button className={styles.joinButton}>Book a photogrpher</button>

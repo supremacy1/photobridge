@@ -5,7 +5,14 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 const bodyParser = require('body-parser');
+
+const jwt = require("jsonwebtoken");
 // const { sequelize } = require('./models');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto'); // To generate a secure token
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const JWT_SECRET = "bb4b17e53743486301850011da5f581178bcc81f50085b6714dd64b9b19c0f77"; // Replace with your secret key
 
 const app = express();
 app.use(bodyParser.json());
@@ -105,8 +112,7 @@ const upload = multer({ storage });
 //     return res.status(200).json({ message: 'Login successful', userId: result[0].user_id, fullname: result[0].fullname });
 //   });
 // });
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+
 
 app.post('/register', (req, res) => {
   const { fullname, studio, address, phone, email, password } = req.body;
@@ -115,40 +121,78 @@ app.post('/register', (req, res) => {
   if (!emailRegex.test(email)) {
     return res.status(400).json({ message: 'Invalid email format' });
   }
+
   if (!fullname || !studio || !address || !phone || !email || !password) {
     return res.status(400).send({ error: 'All fields are required' });
   }
 
   const CHECK_EMAIL_QUERY = `SELECT * FROM users WHERE email = ?`;
   db.query(CHECK_EMAIL_QUERY, [email], (err, results) => {
-    if (err) {
-      console.error('Error checking email:', err);
-      return res.status(500).send({ error: 'Error registering user' });
-    }
-
+    if (err) return res.status(500).send({ error: 'Error registering user' });
     if (results.length > 0) {
       return res.status(400).send({ error: 'Email already exists' });
     }
 
-    // Hash the password using bcrypt
     bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
-      if (err) {
-        console.error('Error hashing password:', err);
-        return res.status(500).send({ error: 'Error registering user' });
-      }
+      if (err) return res.status(500).send({ error: 'Error hashing password' });
 
-      const INSERT_USER_QUERY = `INSERT INTO users (fullname, studio, address, phone, email, password) VALUES (?, ?, ?, ?, ?, ?)`;
-      db.query(INSERT_USER_QUERY, [fullname, studio, address, phone, email, hashedPassword], (err, result) => {
-        if (err) {
-          console.error('Error inserting user:', err);
-          return res.status(500).send({ error: 'Error registering user' });
-        }
+      const verificationToken = crypto.randomBytes(32).toString('hex'); // Generate token
+      const INSERT_USER_QUERY = `
+        INSERT INTO users (fullname, studio, address, phone, email, password, verification_token)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      `;
 
-        res.status(201).send({ message: 'User registered successfully' });
+      db.query(INSERT_USER_QUERY, [fullname, studio, address, phone, email, hashedPassword, verificationToken], (err) => {
+        if (err) return res.status(500).send({ error: 'Error registering user' });
+
+        // Send verification email
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'andrewohejiedogbu@gmail.com', // Update with your email
+            pass: 'sxse hswf meju vqqk',  // Update with your email password
+          },
+        });
+
+        const verificationLink = `http://localhost:3001/verify?token=${verificationToken}`;
+        const mailOptions = {
+          from: '"Photobridge" <andrewohejiedogbu@gmail.com>',
+          to: email,
+          subject: 'Email Verification',
+          html: `<p>Click <a href="${verificationLink}">here</a> to verify your email.</p>`,
+        };
+
+        transporter.sendMail(mailOptions, (err) => {
+          if (err) return res.status(500).send({ error: 'Error sending verification email' });
+          res.status(201).send({ message: 'User registered. Check your email for verification link.' });
+        });
       });
     });
   });
 });
+
+app.get('/verify', (req, res) => {
+  const { token } = req.query;
+
+  if (!token) return res.status(400).send({ error: 'Invalid token' });
+
+  const VERIFY_USER_QUERY = `SELECT * FROM users WHERE verification_token = ?`;
+  db.query(VERIFY_USER_QUERY, [token], (err, results) => {
+    if (err || results.length === 0) {
+      return res.status(400).send({ error: 'Invalid or expired token' });
+    }
+
+    const UPDATE_USER_QUERY = `
+      UPDATE users SET is_verified = TRUE, verification_token = NULL WHERE verification_token = ?
+    `;
+    db.query(UPDATE_USER_QUERY, [token], (err) => {
+      if (err) return res.status(500).send({ error: 'Error verifying email' });
+
+      res.redirect('/login'); // Redirect to login page
+    });
+  });
+});
+
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -156,29 +200,28 @@ app.post('/login', (req, res) => {
     return res.status(400).json({ message: 'Please provide email and password' });
   }
 
-  const SELECT_USER_QUERY = 'SELECT user_id, fullname, password FROM users WHERE email = ?';
+  const SELECT_USER_QUERY = 'SELECT user_id, fullname, password, is_verified FROM users WHERE email = ?';
   db.query(SELECT_USER_QUERY, [email], (err, results) => {
-    if (err) {
-      return res.status(500).json({ message: 'Error while logging in' });
-    }
+    if (err) return res.status(500).json({ message: 'Error while logging in' });
     if (results.length === 0) {
       return res.status(404).json({ message: 'Invalid credentials' });
     }
 
     const user = results[0];
-    // Compare the provided password with the hashed password stored in the database
+
+    if (!user.is_verified) {
+      return res.status(403).json({ message: 'Please verify your email before logging in.' });
+    }
+
     bcrypt.compare(password, user.password, (err, isMatch) => {
-      if (err) {
-        return res.status(500).json({ message: 'Error while logging in' });
-      }
-      if (!isMatch) {
-        return res.status(404).json({ message: 'Invalid credentials' });
-      }
+      if (err) return res.status(500).json({ message: 'Error while logging in' });
+      if (!isMatch) return res.status(404).json({ message: 'Invalid credentials' });
 
       return res.status(200).json({ message: 'Login successful', userId: user.user_id, fullname: user.fullname });
     });
   });
 });
+
 
 app.post('/upload', authenticate, upload.array('images', 10), (req, res) => {
   const { userId } = req;

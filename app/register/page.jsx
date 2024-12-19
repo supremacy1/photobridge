@@ -40,10 +40,10 @@ function Register() {
 
     try {
       const response = await axios.post('http://localhost:3001/register', formData);
-      setSuccess(response.data.message);
+      setSuccess(response.data.message + " Please check your email for verification.");
       setTimeout(() => {
         router.push('/login');
-      }, 1000); // Redirect to login page after 2 seconds
+      }, 2000); // Redirect to login page after 2 seconds
     } catch (error) {
       if (error.response) {
         setError(error.response.data.error);
@@ -60,7 +60,11 @@ function Register() {
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
           {error && <div className={styles.error}>{error}</div>}
-          {success && <div className={styles.success}>{success}</div>}
+          {success && (
+            <div className={styles.success}>
+              {success} Please check your email for verification.
+            </div>
+          )}
           <div className={styles.formGroup}>
             <label htmlFor="fullname">Full Name</label>
             <input
@@ -137,3 +141,4 @@ function Register() {
 }
 
 export default Register;
+// ag1youthministry2022@gmail.com
