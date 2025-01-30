@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from '../styles/allUsersDashboard.module.css';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 // import '/styles/globals.css'
 
 export default function Home() {
@@ -78,6 +79,7 @@ export default function Home() {
 
   return (
     <>
+    <Header />
      <div className={styles.maincontainer}>
       <div className={styles.container}>
         {!selectedUser ? (

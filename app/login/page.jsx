@@ -4,6 +4,8 @@
 import { useEffect, useState } from 'react';
 import styles from "../styles/login.module.css";
 import Footer from "../components/Footer.jsx";
+import Header from "../components/Header";
+
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -56,6 +58,7 @@ const handleSubmit = async (e) => {
 
   return (
     <>
+    <Header />
       <div className={styles.container}>
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>

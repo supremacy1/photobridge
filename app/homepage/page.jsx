@@ -1,16 +1,16 @@
+"use client"
 import Head from 'next/head';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import styles from "../styles/Landingpage.module.css";
+import styles from "../styles/home.module.css";
 import Footer from "../components/Footer.jsx";
-import header from "./Header.jsx";
 import Link from 'next/link';
 
 
 
 
 
-export default function Home() {
+export default function Homepage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0); // State for current image index
   const [previewImage, setPreviewImage] = useState(null);

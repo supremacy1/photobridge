@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from "../styles/dashboard.module.css";
 import Footer from "../components/Footer.jsx";
 import Link from 'next/link';
+import Header from '../components/Header';
 
 function Dashboard() {
   const [fullname, setFullname] = useState('');
@@ -109,6 +110,7 @@ function Dashboard() {
 
   return (
     <>
+    <Header />
       <div className={styles.container}>
         {/* <Link href = "/home">
         <button className={styles.home}>Home</button>

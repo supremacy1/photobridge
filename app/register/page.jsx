@@ -4,6 +4,7 @@ import styles from "../styles/register.module.css";
 import Footer from "../components/Footer.jsx";
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Header from '../components/Header';
 
 function Register() {
   const router = useRouter(); 
@@ -55,6 +56,7 @@ function Register() {
 
   return (
     <>
+    <Header />
      <div className={styles.maincontainer}>
       <div className={styles.container}>
         <h1>Register</h1>
