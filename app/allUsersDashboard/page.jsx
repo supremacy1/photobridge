@@ -90,7 +90,10 @@ export default function Home() {
             <div className={styles.usersContainer}>
               {users.map((user) => (
                 <div key={user.user_id} className={styles.userCard} onClick={() => handleUserClick(user.user_id)}>
-                {user.profile_picture && <img src={`http://localhost:3001/${user.profile_picture}`} alt="Profile" className={styles.profilePicture} />}
+                {user.profile_picture && <image src={`http://localhost:3001/${user.profile_picture}`} alt="Profile" className={styles.profilePicture} 
+                 width={100} // Set the width of the image
+                 height={100} 
+                />}
                   <h3><strong>Name:</strong> {user.fullname}</h3>
                   <p><strong>Studio Name:</strong>{user.studio}</p>
                   <p><strong>Phone:</strong>{user.phone}</p>
