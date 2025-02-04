@@ -88,13 +88,17 @@ export default function Home() {
           <>
             <h1>All Certify photographer</h1>
             <div className={styles.usersContainer}>
-              {users.map((user) => (
-                <div key={user.user_id} className={styles.userCard} onClick={() => handleUserClick(user.user_id)}>
-                {user.profile_picture && <image src={`http://localhost:3001/${user.profile_picture}`} alt="Profile" className={styles.profilePicture} 
-                 width={100} // Set the width of the image
-                 height={100} 
-                />}
-                  <h3><strong>Name:</strong> {user.fullname}</h3>
+            {users.map((user) => (
+    <div key={user.user_id} className={styles.userCard} onClick={() => handleUserClick(user.user_id)}>
+      {user.profile_picture && (
+        <Image
+          src={`http://localhost:3001/${user.profile_picture}`}
+          alt="Profile"
+          className={styles.profilePicture}
+          width={100} // Set the width of the image
+          height={100} // Set the height of the image
+        />
+      )}                  <h3><strong>Name:</strong> {user.fullname}</h3>
                   <p><strong>Studio Name:</strong>{user.studio}</p>
                   <p><strong>Phone:</strong>{user.phone}</p>
                   <p><strong>Email:</strong>{user.email}</p>
@@ -139,7 +143,10 @@ export default function Home() {
         <div className={`${styles.previewOverlay} ${previewSrc ? styles.show : ''}`}>
          
           <button className={styles.prevButton} onClick={handlePrevImage}>Previous</button>
-          <img src={previewSrc} alt="Preview" />
+          <image src={previewSrc} alt="Preview"
+           width={100} // Set the width of the image
+           height={100} 
+          />
           <button className={styles.nextButton} onClick={handleNextImage}>Next</button>
           <button className={styles.closeButton} onClick={handleClosePreview}>Close</button>
         </div>
