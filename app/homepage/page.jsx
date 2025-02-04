@@ -10,6 +10,7 @@ import Link from 'next/link';
 
 
 
+
 export default function Homepage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0); // State for current image index
@@ -42,7 +43,7 @@ export default function Homepage() {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000); // Change image every 3 seconds
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+  }, [images.length]);
 
   return (
     <>

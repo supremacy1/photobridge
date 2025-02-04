@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import styles from '../styles/allUsersDashboard.module.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Image from 'next/image';
+
 // import '/styles/globals.css'
 
 export default function Home() {

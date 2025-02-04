@@ -5,6 +5,7 @@ import styles from "../styles/dashboard.module.css";
 import Footer from "../components/Footer.jsx";
 import Link from 'next/link';
 import Header from '../components/Header';
+import Image from 'next/image';
 
 function Dashboard() {
   const [fullname, setFullname] = useState('');
@@ -119,7 +120,11 @@ function Dashboard() {
         
         <div className={styles.uploadContainer}>
           <input type="file" accept="image/*" onChange={handleProfilePictureChange} />
-          {profilePicture && <img src={`http://localhost:3001/${profilePicture}`} alt="Profile" className={styles.profilePicture} />}
+          {profilePicture && <image src={`http://localhost:3001/${profilePicture}`} alt="Profile" className={styles.profilePicture} 
+          
+          width={100} // Set the width of the image
+          height={100} // Set the height of the image
+          />}
         </div>
         <div className={styles.uploadContainer}>
           <input type="file" multiple onChange={handleFileChange} />
@@ -128,7 +133,11 @@ function Dashboard() {
         <div className={styles.imagesContainer}>
           {images.map((image) => (
             <div key={image.image_id} className={styles.imageWrapper}>
-              <img src={`http://localhost:3001/${image.image_path}`} alt="User Upload" onClick={() => handlePreview(image.image_path)} />
+              <image src={`http://localhost:3001/${image.image_path}`} alt="User Upload" onClick={() => handlePreview(image.image_path)} 
+              
+              width={100} // Set the width of the image
+              height={100} // Set the height of the image
+              />
               <button onClick={() => handleDelete(image.image_id)}>Delete</button>
             </div>
           ))}
