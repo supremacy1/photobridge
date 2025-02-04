@@ -1,3 +1,4 @@
+"use client"
 import Head from 'next/head';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
@@ -54,7 +55,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Image src="/images/SUB.jpg" alt="Aperture Logo" border-radius="50%" width={50} height={50} radius="20%" />
+          <Image src="/images/va.png" alt="Aperture Logo" border-radius="50%" width={50} height={50} radius="20%" />
           <span>PhotoBridge</span>
         </div>
         <button className={styles.menuButton} onClick={toggleMenu}>

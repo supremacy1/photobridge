@@ -54,7 +54,7 @@ export default function Homepage() {
       {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Image src="/images/SUB.jpg" alt="Aperture Logo" border-radius="50%" width={50} height={50} radius="20%" />
+          <Image src="/images/val1.jpg" alt="Aperture Logo" border-radius="50%" width={50} height={50} radius="20%" />
           <span>PhotoBridge</span>
         </div>
         <button className={styles.menuButton} onClick={toggleMenu}>
