@@ -109,7 +109,7 @@ export default function Home() {
         ) : (
           <div>
             <button onClick={handleBackToUsers} className={styles.backButton}>Back to All Users</button>
-            <h1>{selectedUser.user.fullname}'s Dashboard</h1>
+            <h1>{selectedUser.user.fullname} Dashboard</h1>
             {selectedUser.user.profile_picture && (
               <image
                 src={`http://localhost:3001/${selectedUser.user.profile_picture}`} 

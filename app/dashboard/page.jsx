@@ -144,7 +144,10 @@ function Dashboard() {
         </div>
         {previewSrc && (
           <div className={`${styles.previewOverlay} ${previewSrc ? styles.show : ''}`} onClick={closePreview}>
-            <img src={previewSrc} alt="Preview" />
+            <image src={previewSrc} alt="Preview" 
+             width={100} // Set the width of the image
+             height={100} 
+            />
           </div>
         )}
       </div>
