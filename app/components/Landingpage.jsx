@@ -41,10 +41,9 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
-  
+    }, 5000); // Change image every 3 seconds
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, [images.length]); // Add images.length to the dependency array
+  }, []);
 
   return (
     <>
