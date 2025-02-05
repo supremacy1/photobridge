@@ -144,8 +144,8 @@ export default function Home() {
          
           <button className={styles.prevButton} onClick={handlePrevImage}>Previous</button>
           <Image src={previewSrc} alt="Preview"
-           width={100} // Set the width of the image
-           height={100} 
+           width={400} // Set the width of the image
+           height={400} 
           />
           <button className={styles.nextButton} onClick={handleNextImage}>Next</button>
           <button className={styles.closeButton} onClick={handleClosePreview}>Close</button>
@@ -155,8 +155,8 @@ export default function Home() {
       {profilePreviewSrc && (
         <div className={`${styles.previewOverlay} ${profilePreviewSrc ? styles.show : ''}`}>
           <Image src={profilePreviewSrc} alt="Profile Preview" 
-           width={100} // Set the width of the image
-           height={100} />
+           width={400} // Set the width of the image
+           height={400} />
           <button className={styles.closeButton} onClick={handleCloseProfilePreview}>Close</button>
         </div>
       )}
