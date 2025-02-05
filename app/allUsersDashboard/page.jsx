@@ -111,7 +111,7 @@ export default function Home() {
             <button onClick={handleBackToUsers} className={styles.backButton}>Back to All Users</button>
             <h1>{selectedUser.user.fullname} Dashboard</h1>
             {selectedUser.user.profile_picture && (
-              <image
+              <Image
                 src={`http://localhost:3001/${selectedUser.user.profile_picture}`} 
                 alt="Profile" 
                 className={styles.profilePicture} 
@@ -128,7 +128,7 @@ export default function Home() {
             <div className={styles.imagesContainer}>
               {selectedUser.images.map((image, index) => (
                 <div key={index} className={styles.imageWrapper}>
-                  <image src={`http://localhost:3001/${image.image_path}`} alt="Uploaded" onClick={() => handlePreview(index)} 
+                  <Image src={`http://localhost:3001/${image.image_path}`} alt="Uploaded" onClick={() => handlePreview(index)} 
                    width={100} // Set the width of the image
                    height={100} 
                   />
@@ -143,7 +143,7 @@ export default function Home() {
         <div className={`${styles.previewOverlay} ${previewSrc ? styles.show : ''}`}>
          
           <button className={styles.prevButton} onClick={handlePrevImage}>Previous</button>
-          <image src={previewSrc} alt="Preview"
+          <Image src={previewSrc} alt="Preview"
            width={100} // Set the width of the image
            height={100} 
           />
@@ -154,7 +154,7 @@ export default function Home() {
 
       {profilePreviewSrc && (
         <div className={`${styles.previewOverlay} ${profilePreviewSrc ? styles.show : ''}`}>
-          <image src={profilePreviewSrc} alt="Profile Preview" 
+          <Image src={profilePreviewSrc} alt="Profile Preview" 
            width={100} // Set the width of the image
            height={100} />
           <button className={styles.closeButton} onClick={handleCloseProfilePreview}>Close</button>

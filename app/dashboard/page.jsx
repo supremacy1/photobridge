@@ -120,7 +120,7 @@ function Dashboard() {
         
         <div className={styles.uploadContainer}>
           <input type="file" accept="image/*" onChange={handleProfilePictureChange} />
-          {profilePicture && <image src={`http://localhost:3001/${profilePicture}`} alt="Profile" className={styles.profilePicture} 
+          {profilePicture && <Image src={`http://localhost:3001/${profilePicture}`} alt="Profile" className={styles.profilePicture} 
           
           width={100} // Set the width of the image
           height={100} // Set the height of the image
@@ -133,7 +133,7 @@ function Dashboard() {
         <div className={styles.imagesContainer}>
           {images.map((image) => (
             <div key={image.image_id} className={styles.imageWrapper}>
-              <image src={`http://localhost:3001/${image.image_path}`} alt="User Upload" onClick={() => handlePreview(image.image_path)} 
+              <Image src={`http://localhost:3001/${image.image_path}`} alt="User Upload" onClick={() => handlePreview(image.image_path)} 
               
               width={100} // Set the width of the image
               height={100} // Set the height of the image
@@ -144,7 +144,7 @@ function Dashboard() {
         </div>
         {previewSrc && (
           <div className={`${styles.previewOverlay} ${previewSrc ? styles.show : ''}`} onClick={closePreview}>
-            <image src={previewSrc} alt="Preview" 
+            <Image src={previewSrc} alt="Preview" 
              width={100} // Set the width of the image
              height={100} 
             />
