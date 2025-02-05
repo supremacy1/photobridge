@@ -103,45 +103,46 @@
 // // }
 
 // // export default ResetPassword;
-// import React, { useState } from "react";
-// import axios from "axios";
-// import { useRouter } from "next/navigation";
+"use client"
+import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
-// const ResetPassword = () => {
-//   const [email, setEmail] = useState("");
-//   const [message, setMessage] = useState("");
-//   const router = useRouter();
+const ResetPassword = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const router = useRouter();
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setMessage("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
 
-//     try {
-//       const response = await axios.post("http://localhost:3001/reset-password", { email });
-//       setMessage(response.data.message);
-//       // Optional: Redirect to confirmation page
-//       setTimeout(() => router.push("/login"), 3000);
-//     } catch (error) {
-//       setMessage(error.response?.data?.message || "An error occurred. Please try again.");
-//     }
-//   };
+    try {
+      const response = await axios.post("http://localhost:3001/reset-password", { email });
+      setMessage(response.data.message);
+      // Optional: Redirect to confirmation page
+      setTimeout(() => router.push("/login"), 3000);
+    } catch (error) {
+      setMessage(error.response?.data?.message || "An error occurred. Please try again.");
+    }
+  };
 
-//   return (
-//     <div>
-//       <h1>Reset Password</h1>
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="email"
-//           placeholder="Enter your email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <button type="submit">Send Reset Link</button>
-//       </form>
-//       {message && <p>{message}</p>}
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <h1>Reset Password</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit">Send Reset Link</button>
+      </form>
+      {message && <p>{message}</p>}
+    </div>
+  );
+};
 
-// export default ResetPassword;
+export default ResetPassword;
